@@ -1,0 +1,27 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "Backend Repo for Job Portal Application.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vijay-Nataraj/be-fsdwdtb11.git"
+  },
+  "author": "Vijay Nataraj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vijay-Nataraj/be-fsdwdtb11/issues"
+  },
+  "homepage": "https://github.com/Vijay-Nataraj/be-fsdwdtb11#readme",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
