@@ -1,14 +1,21 @@
-// server.mjs
-const { createServer } = require("http");
+// import http module to setup http server
+const http = require("http");
 
-const server = createServer((req, res) => {
-  res.writeHead(200, { "Content-Type": "text/plain" });
-  res.end("Hello World!!!\n");
+//create a server object
+const server = http.createServer((request, response) => {
+  //set the response header
+  //for plain text
+  // response.writeHead(200, { "content-type": "text/plain" });
+  // response.end("Hello world\n");
+  //for html
+  // response.writeHead(200, { "content-type": "text/html" });
+  // response.end("<h1>Hello World</h1>");
+  //for json
+  response.writeHead(200, { "content-type": "Application/json" });
+  response.end(JSON.stringify({ message: "Hello World" }));
 });
 
-// starts a simple http server locally on port 3000
+// listen to the server on port 3000
 server.listen(3000, "127.0.0.1", () => {
-  console.log("Listening on 127.0.0.1:3000");
+  console.log("Server is running on http://127.0.0.1:3000");
 });
-
-// run with `node server.mjs`
