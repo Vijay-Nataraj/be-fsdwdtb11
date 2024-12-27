@@ -4,13 +4,34 @@ const express = require("express");
 //create a express app
 const app = express();
 
+//create a middleware
+const logger = (request, response, next) => {
+  console.log(`Requeset URL: ${request.url}`);
+  console.log(`Requeset method: ${request.method}`);
+  console.log(`Requeset Header: ${JSON.stringify(request.headers)}`);
+  console.log(`Requeset query: ${JSON.stringify(request.query)}`);
+  console.log(`Requeset params: ${JSON.stringify(request.params)}`);
+  console.log(`Requeset body: ${JSON.stringify(request.body)}`);
+  console.log(`Requeset cookies: ${JSON.stringify(request.cookies)}`);
+
+  console.log(`---------------------------`);
+  next();
+};
+
+//use the logger middleware
+app.use(logger);
+
 app.get("/", (request, response) => {
-  response.json({ Message: "GET /" });
+  response.json({ Message: "GET" });
 });
 
-app.post("/", (request, response) => {
-  response.json({ Message: "POST /" });
-});
+//middleware for handling 404 errors
+const notFound = (request, respone, next) => {
+  respone.json({ message: "Route not Found" });
+};
+
+//use the notFound middleware
+app.use(notFound);
 
 app.listen(3000, () => {
   console.log("Server is running on http://127.0.0.1:3000");
