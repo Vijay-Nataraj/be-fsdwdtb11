@@ -3,13 +3,16 @@ const http = require("http");
 
 //create a server object
 const server = http.createServer((request, response) => {
-  //set the response header
+  //set the response header and  the response body
+
   //for plain text
   // response.writeHead(200, { "content-type": "text/plain" });
   // response.end("Hello world\n");
+
   //for html
   // response.writeHead(200, { "content-type": "text/html" });
   // response.end("<h1>Hello World</h1>");
+
   //for json
   response.writeHead(200, { "content-type": "Application/json" });
   response.end(JSON.stringify({ message: "Hello World" }));
