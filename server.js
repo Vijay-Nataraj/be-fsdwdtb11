@@ -1,15 +1,15 @@
 const app = require("./app");
 const mongoose = require("mongoose");
-require("dotenv").config();
+const { MONGODB_URL, PORT } = require("./utils/config");
 
 //connect to the database
 mongoose
-  .connect(process.env.MONGODB_URL)
+  .connect(MONGODB_URL)
   .then(() => {
     console.log("Connected to the database...");
 
     //listen for requests and start the server
-    app.listen(process.env.PORT, () => {
+    app.listen(PORT, () => {
       console.log("Server is running on http://127.0.0.1:3000");
     });
   })
