@@ -1,14 +1,15 @@
 // import express module
 const express = require("express");
-//const logger = require("./utils/logger");
+const logger = require("./utils/logger");
 const errorRoute = require("./utils/errorRoute");
-const morgan = require("morgan");
+//const morgan = require("morgan");
+
 //create a express app
 const app = express();
 
 //use the logger middleware
-// app.use(logger);
-app.use(morgan("dev"));
+app.use(logger);
+//app.use(morgan("dev"));
 
 app.get("/", (request, response) => {
   response.json({ Message: "GET" });
