@@ -7,5 +7,7 @@ const jobRouter = express.Router();
 
 jobRouter.get("/", jobController.getJobs);
 jobRouter.post("/", jobController.createJob);
+jobRouter.get("/:id", jobController.getJobByID);
+jobRouter.get("/search", jobController.searchJobs);
 
 module.exports = jobRouter;
